@@ -2,10 +2,7 @@ import os
 os.system("pip install explainit-1.0-py3-none-any.whl")
 
 from explainit.app import build
-
 import pandas as pd
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
 
 TRAIN_CSV_PATH = os.getenv("TRAIN_CSV_PATH")
 TEST_CSV_PATH = os.getenv("TEST_CSV_PATH")
@@ -15,7 +12,11 @@ TARGET_COLUMN_TYPE = os.getenv("TARGET_COLUMN_TYPE")
 ref_data = pd.read_csv(TRAIN_CSV_PATH)
 cur_data = pd.read_csv(TEST_CSV_PATH)
 
-ref_data = pd.read_csv()
+if "Unnamed: 0" in list(ref_data.columns):
+    ref_data = ref_data.drop("Unnamed: 0", axis =1)
+
+if "Unnamed: 0" in list(cur_data.columns):
+    cur_data = cur_data.drop("Unnamed: 0", axis =1)
 
 build(
   reference_data=ref_data,
