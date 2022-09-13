@@ -1,6 +1,8 @@
 from explainit.app import build
 
 import os
+os.system("pip install -r requirements.txt")
+
 import pandas as pd
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
