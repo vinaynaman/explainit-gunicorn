@@ -1,7 +1,7 @@
 from explainit.app import build
 
 import os
-os.system("pip install -r requirements.txt")
+os.system("pip install explainit-1.0-py3-none-any.whl")
 
 import pandas as pd
 from sklearn import datasets
